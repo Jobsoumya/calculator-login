@@ -1,4 +1,4 @@
 FROM nginx:alpine
-COPY . /usr/share/nginx/html/
+COPY login.html /usr/share/nginx/html/login.html
 
 EXPOSE 80
