@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Scientific-Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:black;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Login Container */
+
+.container{
+    background:#1c1c1c;
+    padding:40px;
+    border-radius:10px;
+    width:320px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 20px rgba(0,0,0,0.7);
+}
+
+/* Heading */
+
+h2{
+    margin-bottom:20px;
+}
+
+/* Inputs */
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:5px;
+    background:#333;
+    color:white;
+}
+
+/* Login Button */
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    border-radius:5px;
+    background:#ff7a18;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ffb347;
+}
+
+/* Error */
+
+#error{
+    color:#ff4d4d;
+    font-size:13px;
+    margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>DevOps Lab Login</h2>
+
+<input type="text" id="username" placeholder="Enter Username">
+
+<input type="password" id="password" placeholder="Enter Password">
+
+<button onclick="login()">Login</button>
+
+<div id="error"></div>
+
+</div>
+
+<script>
+
+function login(){
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    const validUser="admin";
+    const validPass="Admin@123";
+
+    if(username===validUser && password===validPass){
+
+        /* Redirect to Calculator Service */
+
+        window.location.href="http://CALCULATOR-SERVICE-IP:30007";
+
+    }
+    else{
+
+        error.innerHTML="Invalid credentials";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
