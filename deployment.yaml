@@ -1,20 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: calculator-app
+  name: calculator-login
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: calculator-app
+      app: calculator-login
   template:
     metadata:
       labels:
-        app: calculator-app
+        app: calculator-login
     spec:
       containers:
-      - image: ghcr.io/jobsoumya/calculator-app:latest
-        name: calculator-app
+      - image: ghcr.io/jobsoumya/calculator-login:v1
+        name: calculator-login
         ports:
-        - containerPort: 3000
+        - containerPort: 80
 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: calculator-login-service
+spec:
+  type: NodePort
+  selector:
+    app: calculator-login
+  ports:
+  - port: 80
+    targetPort: 80
